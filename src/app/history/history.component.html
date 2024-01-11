@@ -6,21 +6,24 @@
                 Search Term
             </div>
             <div class="section2">
-                Search Term
+                Search Results
             </div>
     
         </div>
-        <div class="history-main">
-            <div class="section1">
-                <span>here-----</span>
-            </div>
-            <div class="section2">
-                <div class="sub-sec1">
-                    <app-searchtile></app-searchtile>
+        <div>
+            <div class="history-main" *ngFor="let history of historyData">
+                <div class="section1">
+                    <span>{{history.searchTerm}}</span>
+                </div>
+                <div class="section2">
+                    <div class="sub-sec1">
+                        <app-searchtile [users]="history.searchValue"></app-searchtile>
+                    </div>
                 </div>
             </div>
         </div>
-            <button class="btn-primary"> Clear History</button>
+        <div class="empty-history-main" *ngIf="historyData.length==0"></div>
+            <button class="btn-primary" (click)="clearHistory()"> Clear History</button>
     </div>
     
 

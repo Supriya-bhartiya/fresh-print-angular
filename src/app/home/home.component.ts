@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { HistoryService } from '../../services/history.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,18 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private service: ApiService) { }
-  results: any;
+  results: any ={};
   isDisabled: boolean = true;
+  history:any=[];
 
-  ngOnInit() {
-  }
+  constructor(private service: ApiService,private historyService :HistoryService) {
+    this.historyService.getHistory.subscribe((historyData: any) => {
+      this.history = historyData;
+    });
+   }
+  
+
+  ngOnInit() {}
 
   formData = {
     search: '',
@@ -34,11 +40,23 @@ export class HomeComponent implements OnInit {
           image_url: data.avatar_url ? data.avatar_url : null,
           username: data.login ? data.login : null,
         }
-        localStorage.setItem('users', JSON.stringify(userData));
-        this.service.setUserData(userData);
+        this.results = userData;
+        this.history.push({
+          searchTerm: this.formData.search,
+          searchValue:userData,
+          createdAt:new Date()
+        });
+        this.historyService.setHistory(this.history);
       },
       error: (error) => {
-        this.service.setUserData({ message: 'No User Found!' });
+        console.log('data---error',error);
+        this.results = { message: 'No User Found!' }
+        this.history.push({
+          searchTerm: this.formData.search,
+          searchValue: { message: 'No User Found!' },
+          createdAt:new Date()
+        });
+        this.historyService.setHistory(this.history);
       }
     });
   }

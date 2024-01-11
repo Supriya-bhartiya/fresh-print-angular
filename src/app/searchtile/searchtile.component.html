@@ -1,4 +1,4 @@
-<div *ngIf="isUser" class="maintile">
+<div *ngIf="!users.message" class="maintile">
     <div class="image-sec">
         <div class="user-title"> User Image</div>
         <div class="imagebox"> 
@@ -10,7 +10,7 @@
         <div class="info"> {{users.username}}</div>
     </div>
 </div>
-<div *ngIf="!isUser" class="maintile">
+<div *ngIf="users.message" class="maintile">
     <div class="image-sec">
         <div class="user-title"> No User Found</div>
     </div>
