@@ -1,0 +1,116 @@
+:host {
+    overflow: hidden;
+
+    .home-main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-color: #dde6ef;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 17px;
+        padding: 47px 0px 28px 0px;
+        /* width: 50%; */
+    }
+
+    .subcategory {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* margin-left: -146px; */
+        width: 90%;
+
+        .search-form {
+            min-width: 150px;
+            max-width: 380px;
+            width: 140%;
+            background: whitesmoke;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            /* margin-left: 187px; */
+            padding: 5px;
+        }
+
+        .search-full-width {
+            width: 100%;
+        }
+
+        .search-input {
+            width: 96%;
+            padding: 7px 9px;
+            display: inline-block;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+
+        .mat-form-field-label {
+            opacity: 0.5;
+        }
+
+
+    }
+
+    .search-list {
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+        width: 50%;
+        margin-left: 33%;
+        margin-top: 40px;
+    }
+
+    .search-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        color: #808080;
+        margin-left: 25px;
+    }
+
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 146%;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 9px;
+        /* box-shadow: 0 9px #999; */
+        margin-top: 18px;
+        /* margin-left: 182px; */
+    }
+
+    .btn-primary:hover {
+        background-color: #3e8e41
+    }
+
+    .btn-primary:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .btn-primary:disabled,
+    .btn-primary[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
+}
+
+
+::ng-deep .mat-form-field-prefix {
+    margin-right: 30px;
+}

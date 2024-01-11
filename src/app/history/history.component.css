@@ -1,0 +1,101 @@
+:host {
+    .mainpage {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-color: #dde6ef;
+    }
+
+    .history-title {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        color: #808080;
+        margin-top: 60px;
+    }
+
+    .history-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 15px;
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .history-head {
+        display: flex;
+        flex-direction: row;
+        background-color: #808080;
+        padding: 5px 8px 7px 9px;
+        border-radius: 5px;
+
+        .section1 {
+            width: 30%;
+            margin-left: 15%;
+        }
+
+        .section2 {
+            width: 70%;
+            margin-left: 25%;
+        }
+    }
+
+    .history-main {
+        display: flex;
+        flex-direction: row;
+        background-color: whitesmoke;
+        padding: 5px 8px 7px 9px;
+        border-radius: 5px;
+        margin-top: 5px;
+        height: 100%;
+
+        .section1 {
+            width: 30%;
+            margin-left: 15%;
+        }
+
+        .section2 {
+            width: 100%;
+            /* margin-left: 25%; */
+
+            .sub-sec1 {
+                height: 89%;
+                width: 128%;
+
+            }
+        }
+    }
+
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75px;
+        width: 29%;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 9px;
+        margin-top: 10%;
+        margin-left: 40%;
+    }
+
+    .btn-primary:hover {
+        background-color: #3e8e41
+    }
+
+    .btn-primary:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+}

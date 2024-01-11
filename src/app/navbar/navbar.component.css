@@ -1,0 +1,27 @@
+:host {
+  font-family: 'Roboto Slab';
+  
+  .topnav {
+    font-family: 'Roboto Slab';
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+
+  .topnav a {
+    float: right;
+    color: #808080;
+    text-align: center;
+    padding: 21px 44px 19px 31px;
+    text-decoration: none;
+    font-size: 22px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    text-decoration: solid underline #1260CC 2px;
+  }
+}
