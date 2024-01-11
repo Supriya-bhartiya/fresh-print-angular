@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { HistoryService } from '../../services/history.service';
+import { checkState } from '../shared'
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private service: ApiService, private historyService: HistoryService) {
     this.historyService.getHistory.subscribe((historyData: string) => {
-      if (historyData==='add'){
-        this.history = localStorage.getItem('history');
-        this.history = JSON.parse(this.history);
-      }
-      if (historyData==='clear'){
-        localStorage.removeItem('history');
-        this.history = [];
-      }
+      this.history = checkState(historyData);
     });
   }
 

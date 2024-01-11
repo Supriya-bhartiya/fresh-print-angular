@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../../services/history.service';
+import { checkState } from '../shared'
 
 @Component({
   selector: 'app-history',
@@ -12,18 +13,7 @@ export class HistoryComponent implements OnInit {
 
   constructor(private historyService: HistoryService) {
     this.historyService.getHistory.subscribe((response: string) => {
-      if (response === 'initial') {
-        this.historyData = localStorage.getItem('history');
-        this.historyData = JSON.parse(this.historyData);
-      }
-      if (response === 'add') {
-        this.historyData = localStorage.getItem('history');
-        this.historyData = JSON.parse(this.historyData);
-      }
-      if (response === 'clear') {
-        localStorage.removeItem('history');
-        this.historyData = [];
-      }
+      this.historyData = checkState(response);
     });
   }
 
