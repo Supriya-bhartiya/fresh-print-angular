@@ -8,20 +8,30 @@ import { HistoryService } from '../../services/history.service';
 })
 export class HistoryComponent implements OnInit {
 
-  historyData: any = [];
+  historyData: any=[];
 
   constructor(private historyService: HistoryService) {
-    this.historyService.getHistory.subscribe((historyData: any) => {
-      this.historyData = historyData;
+    this.historyService.getHistory.subscribe((response: string) => {
+      if (response === 'initial') {
+        this.historyData = localStorage.getItem('history');
+        this.historyData = JSON.parse(this.historyData);
+      }
+      if (response === 'add') {
+        this.historyData = localStorage.getItem('history');
+        this.historyData = JSON.parse(this.historyData);
+      }
+      if (response === 'clear') {
+        localStorage.removeItem('history');
+        this.historyData = [];
+      }
     });
-    console.log('this.historyData',this.historyData);
   }
 
   ngOnInit(): void {
+    
   }
 
-  clearHistory(){
-    console.log('in----')
+  clearHistory() {
     this.historyService.clearHistory();
   }
 

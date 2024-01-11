@@ -8,18 +8,25 @@ import { HistoryService } from '../../services/history.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  results: any ={};
+  results: any = {};
   isDisabled: boolean = true;
-  history:any=[];
+  history: any = [];
 
-  constructor(private service: ApiService,private historyService :HistoryService) {
-    this.historyService.getHistory.subscribe((historyData: any) => {
-      this.history = historyData;
+  constructor(private service: ApiService, private historyService: HistoryService) {
+    this.historyService.getHistory.subscribe((historyData: string) => {
+      if (historyData==='add'){
+        this.history = localStorage.getItem('history');
+        this.history = JSON.parse(this.history);
+      }
+      if (historyData==='clear'){
+        localStorage.removeItem('history');
+        this.history = [];
+      }
     });
-   }
-  
+  }
 
-  ngOnInit() {}
+
+  ngOnInit() { }
 
   formData = {
     search: '',
@@ -43,18 +50,17 @@ export class HomeComponent implements OnInit {
         this.results = userData;
         this.history.push({
           searchTerm: this.formData.search,
-          searchValue:userData,
-          createdAt:new Date()
+          searchValue: userData,
+          createdAt: new Date()
         });
         this.historyService.setHistory(this.history);
       },
       error: (error) => {
-        console.log('data---error',error);
         this.results = { message: 'No User Found!' }
         this.history.push({
           searchTerm: this.formData.search,
           searchValue: { message: 'No User Found!' },
-          createdAt:new Date()
+          createdAt: new Date()
         });
         this.historyService.setHistory(this.history);
       }
