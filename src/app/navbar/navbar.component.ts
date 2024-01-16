@@ -12,8 +12,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  isCurrentRoute(route : string) : boolean {
-    return this._router.url === route;
- } 
 }

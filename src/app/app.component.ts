@@ -17,14 +17,6 @@ constructor(private _router : Router){
     this.currentUrl = ''
 }
 
-ngOnInit() {
-    // this._router.subscribe(
-    //     currentUrl => this.currentUrl = currentUrl,
-    //     error => console.log(error)
-    // );
-}
+ngOnInit() {}
 
-isCurrentRoute(route : string) : boolean {
-    return this._router.url === route;
- } 
 }
